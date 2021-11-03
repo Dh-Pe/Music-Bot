@@ -1,20 +1,19 @@
 const { MessageEmbed, Util } = require("discord.js");
-const ms = import('parse-ms');
-const { youtubeapikey, color, embedcolor, queuel } = require('../../systems/config.js');
+const ms = import('parse-ms'); //parse-ms versão 2.1.0
+const queuel = 0;
+const youtubeapikey = "AIzaSyCUcBWQSyriULtYJey7dOjVuzYzUyinRF4";
 module.exports = {
 name: "play",
 category: "Música",
 desc: 'Toca uma música ou adiciona uma música a fila',
 aliases: ['p'],
-async execute(client, message, args, database) {
-let db = await database.ref(`Guildas/${message.guild.id}/Servidor`).once('value');
-if(db.val().premium == false) return message.reply('Você precisa ter **Premium** no servidor para ter esse sistema!')
+async execute(client, message, args) {
 const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(youtubeapikey);
-const { play } = require("../../systems/music.js");
+const { play } = require("../../music.js");
 let embed = new MessageEmbed()
-.setColor(color);
+.setColor("RANDOM");
 if (!args.length) {
 embed.setAuthor("Use +play <url> ou <texto>!")
 return message.reply(embed);
@@ -125,4 +124,4 @@ color: "#ff2050"
 }
 }
 }
-};
+}

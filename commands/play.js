@@ -1,5 +1,5 @@
 const { MessageEmbed, Util } = require("discord.js");
-const ms = import('parse-ms'); //parse-ms versão 2.1.0
+const ms = require('parse-ms'); //parse-ms versão 2.1.0
 const queuel = 0;
 const youtubeapikey = "AIzaSyCUcBWQSyriULtYJey7dOjVuzYzUyinRF4";
 module.exports = {
